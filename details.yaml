@@ -1,7 +1,7 @@
-name: roa-debug
+name: roa-discord-rpc
 # mod loader version that this mod supports
 loader-version: 0.0.4
-description: enables various gamemaker debug features for rivals of aether
+description: implements a discord rich presence activity for Rivals of Aether
 # url of repository to fetch released to update from
-repository: https://github.com/raicool/roa-texture-loader
+repository: https://github.com/raicool/roa-discord-rpc
 branch: master
