@@ -41,9 +41,18 @@ bool prepare_discord_sdk()
 	bool core_loaded = false;
 	do 
 	{
-		return true;
-	}
-	return false;
+		if (discord::Core::Create(DISCORD_APP_ID, DiscordCreateFlags_NoRequireDiscord, &g_discord_core) == discord::Result::Ok)
+		{
+			loader_log_info("welcome to roa-discord-rpc (version {})", VERSION_STR);
+			core_loaded = true;
+		}
+		else
+		{
+			std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+		}
+	} while (core_loaded == false);
+	
+	return true;
 }
 
 void exit_proc(HMODULE hModule)
@@ -153,12 +162,11 @@ char lobby_id_str[20];
 std::string steam_invite_link;
 DWORD WINAPI entry(LPVOID hModule)
 {
-	prepare_room_things();
-
-	add_room_goto_callback(on_room_start);
-
 	if (prepare_discord_sdk())
 	{
+		prepare_room_things();
+		add_room_goto_callback(on_room_start);
+
 		if (!prepare_steamworks_hooks())
 		{
 			loader_log_error("roa-discord-rpc: could not find steam_lobby_current address in Steamworks.gml.dll");
