@@ -38,10 +38,8 @@ bool interrupted = false;
 
 bool prepare_discord_sdk()
 {
-	if (discord::Core::Create(
-		DISCORD_APP_ID,
-		DiscordCreateFlags_Default,
-		&g_discord_core) == discord::Result::Ok)
+	bool core_loaded = false;
+	do 
 	{
 		return true;
 	}
