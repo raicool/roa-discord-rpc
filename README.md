@@ -4,7 +4,7 @@ implements a discord rich presence activity for Rivals of Aether
 
 ###### requires roa-mod-loader to be installed in rivals' directory (https://github.com/raicool/roa-mod-loader/releases)
 
-<img src="res/discord-example.png">
+<img src="res/banner.png">
 
 # building & installing
 > If you dont want to compile the project yourself, precompiled versions are available in the [Releases](https://github.com/raicool/roa-discord-rpc/releases) page
