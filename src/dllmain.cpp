@@ -6,8 +6,6 @@
 
 #include "discord.h"
 #include "steam_api.h"
-
-#include "callback.h"
 #include "stage_room_name.h"
 #include "utils.h"
 

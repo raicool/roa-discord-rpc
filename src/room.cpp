@@ -1,9 +1,9 @@
 #include "room.h"
 
 #include "utils.h"
-#include "yoyo.h"
 
 #include <loader/memory.h>
+#include <GMLScriptEnv/yoyo.h>
 
 CRoom* running_room = nullptr;
 std::vector<Command_GotoRoomCallback> callbacks;
