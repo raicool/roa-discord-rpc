@@ -32,9 +32,10 @@ target_link_libraries(${PROJECT_NAME} PRIVATE "${DISCORD_LINKER_LIB}")
 target_include_directories(${PROJECT_NAME} PRIVATE "${DISCORD_GAME_SDK_ROOT}/cpp")
 
 # steamworks
-set(STEAM_API_LIB "${CMAKE_SOURCE_DIR}/vendor/steamworks_sdk_149/redistributable_bin/steam_api.lib")
+set(STEAMWORKS_DIR "${CMAKE_SOURCE_DIR}/vendor/steamworks_sdk_149")
+set(STEAM_API_LIB "${STEAMWORKS_DIR}/redistributable_bin/steam_api.lib")
 target_link_libraries(${PROJECT_NAME} PRIVATE "${STEAM_API_LIB}")
-target_include_directories(${PROJECT_NAME} PRIVATE "vendor/steamworks_sdk_149/public/steam")
+target_include_directories(${PROJECT_NAME} PRIVATE "${STEAMWORKS_DIR}/public/steam")
 
 add_custom_command(
     TARGET ${PROJECT_NAME} POST_BUILD
