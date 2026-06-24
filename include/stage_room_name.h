@@ -46,4 +46,5 @@ static std::unordered_map<const char*, stage_small_image_name> s_stage_rooms
 	// ?
 	{"stage_holy_alt", {"tower-of-heaven", "Tower of Heaven X"}},
 	{"stage_training_clean", {"tutorial-grid", "Practice Room"}},
+	{"stage_custom_clean", {"tutorial-grid", "Workshop Stage"}},
 };
