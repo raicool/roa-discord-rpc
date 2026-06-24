@@ -16,10 +16,12 @@ implements a discord rich presence activity for Rivals of Aether
 	git clone https://github.com/raicool/roa-discord-rpc --recurse-submodules
 	cd roa-discord-rpc
 ```
-2. using Visual Studio's x86 Dev command prompt *vcvars32.bat* run
+2. Download and extract [Steamworks SDK version 1.49](https://partner.steamgames.com/downloads/list) into `vendor/steamworks_sdk_149`
+
+3. using Visual Studio's x86 Dev command prompt *vcvars32.bat* run
 ```sh
 	cmake -G "Ninja" -DCMAKE_SYSTEM_PROCESSOR=i386 -B bin/
 	ninja -C bin/
 ```
-3. copy the dll `bin/roa-discord-rpc.dll` as well as `bin/discord_game_sdk.dll` into the mods directory of rivals of aether, e.g `C:/Program Files (x86)/Steam/steamapps/common/Rivals of Aether/mods/`
+4. copy the dll `bin/roa-discord-rpc.dll` as well as `bin/discord_game_sdk.dll` into the mods directory of rivals of aether, e.g `C:/Program Files (x86)/Steam/steamapps/common/Rivals of Aether/mods/`
 	- if the mods directory doesnt already exists, you will have to create one
