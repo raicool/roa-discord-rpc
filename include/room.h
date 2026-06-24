@@ -1,6 +1,6 @@
 #pragma once
 
-#include "yoyo.h"
+#include <GMLScriptEnv/yoyo.h>
 
 using Command_GotoRoomCallback = void(*)(int, int);
 

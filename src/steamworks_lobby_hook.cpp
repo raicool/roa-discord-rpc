@@ -24,13 +24,15 @@ bool prepare_steamworks_hooks()
 	HMODULE steamworks = GetModuleHandle("Steamworks.gml.dll");
 	if (!steamworks)
 	{
-		loader_log_error("roa-discord-rpc: could not get Steamworks.gml handle");
+		loader_log_error("roa-discord-rpc: could not get Steamworks.gml.dll handle");
 		return false;
 	}
 
 	MODULEINFO minfo{};
 	::GetModuleInformation(GetCurrentProcess(), steamworks, std::addressof(minfo), sizeof(minfo));
 
+	// this is a offset from steamwork's dll, 
+	// should be safe to hardcode this as they hardly update it anyway (this version is from 2019 LOL)
 	uint32_t address = (uint32_t)minfo.lpBaseOfDll + 0x2137;
 
 	if (address)
