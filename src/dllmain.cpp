@@ -244,19 +244,6 @@ void present(ID3D11RenderTargetView*, IDXGISwapChain*, ID3D11Device*, ID3D11Devi
 	g_discord_core->RunCallbacks();
 }
 
-PFUNC_YYGMLScript steam_lobby_join_id_orig = nullptr;
-PFUNC_YYGMLScript dp_steam_lobby_join_orig = nullptr;
-
-RValue& steam_lobby_join_id_detour(CInstance* self, CInstance* other, RValue* out, int argc, RValue** argv)
-{
-	return steam_lobby_join_id_orig(self, other, out, argc, argv);
-}
-
-RValue& dp_steam_lobby_join_detour(CInstance* self, CInstance* other, RValue* out, int argc, RValue** argv)
-{
-	return dp_steam_lobby_join_orig(self, other, out, argc, argv);
-}
-
 LOADER_MOD_ENTRY initialize(loader_info* loaderinfo)
 {
 	loader_mod& mod = loader_mod::get();
@@ -276,13 +263,6 @@ LOADER_MOD_ENTRY initialize(loader_info* loaderinfo)
 		loader_log_error("failed to load discord sdk! is it present in the mods folder?");
 		return mod;
 	}
-
-	void* steam_lobby_join_id = loader_get_script("gml_Script_steam_lobby_join_id");
-	void* dp_steam_lobby_join = loader_get_script("gml_Script_dp_steam_lobby_join");
-	loader_hook_create(steam_lobby_join_id, &steam_lobby_join_id_detour, reinterpret_cast<void**>(&steam_lobby_join_id_orig));
-	loader_hook_create(dp_steam_lobby_join, &dp_steam_lobby_join_detour, reinterpret_cast<void**>(&dp_steam_lobby_join_orig));
-	loader_hook_enable(steam_lobby_join_id);
-	loader_hook_enable(dp_steam_lobby_join);
 
 	if (prepare_discord_sdk())
 	{
