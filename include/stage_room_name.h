@@ -2,13 +2,13 @@
 
 #include <unordered_map>
 
-struct stage_small_image_name
+struct StageSmallImageName
 {
 	const char* api_name; // name of image in discord rpc assets
 	const char* display_name; // name to be used as small image caption
 };
 
-static std::unordered_map<const char*, stage_small_image_name> s_stage_rooms
+static std::unordered_map<const char*, StageSmallImageName> s_stage_rooms
 {
 	// 0
 	{"stage_fire_clean", {"fire-capital", "Fire Capital"}},

@@ -3,7 +3,7 @@
 #include "utils.h"
 
 #include <loader/memory.h>
-#include <GMLScriptEnv/yoyo.h>
+#include <loader/yoyo.h>
 
 CRoom* running_room = nullptr;
 std::vector<Command_GotoRoomCallback> callbacks;

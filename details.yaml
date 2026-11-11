@@ -1,6 +1,6 @@
 name: roa-discord-rpc
 # mod loader version that this mod supports
-loader-version: 0.0.4
+loader-version: 0.0.7
 description: implements a discord rich presence activity for Rivals of Aether
 # url of repository to fetch released to update from
 repository: https://github.com/raicool/roa-discord-rpc
